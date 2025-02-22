@@ -1,0 +1,11 @@
+{
+	"name": "lilys-rtg-radar",
+	"version": "1.0.0",
+	"title": "Lily's RTG Radar",
+	"author": "MsBinaryLily",
+	"description": "Tired of dragging poles or building solar just to see? Well, with this you won't need to!",
+	"factorio_version": "2.0",
+	"dependencies": [
+		"base >= 2.0"
+		]
+}
