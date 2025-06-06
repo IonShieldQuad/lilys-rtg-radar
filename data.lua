@@ -37,8 +37,62 @@ radar.max_health = radar.max_health * 4
 radar.heating_energy = "0W"
 radar.energy_source = {type = "void"}
 radar.energy_usage = "600kW"
+local p1 = {
+    filenames = {},
+    frame_count = 64,
+    line_length = 8,
+    height = radar.pictures.height,
+    width = radar.pictures.width,
+}
+local p2 = table.deepcopy(p1)
+p2.tint = {0.0, 0.1, 0.0, 0.1}
+p2.blend_mode = "additive"
+p2.draw_as_glow = true
 
+radar.pictures = {
+    layers =
+    {
+        {
+            filename = "__lilys-rtg-radar__/graphics/entity/radar.png",
+            priority = "low",
+            width = 196,
+            height = 254,
+            apply_projection = false,
+            direction_count = 64,
+            line_length = 8,
+            shift = util.by_pixel(1.0, -16.0),
+            scale = 0.5
+        },
+        {
+            filename = "__base__/graphics/entity/radar/radar-shadow.png",
+            priority = "low",
+            width = 336,
+            height = 170,
+            apply_projection = false,
+            direction_count = 64,
+            line_length = 8,
+            shift = util.by_pixel(39.0, 6.0),
+            draw_as_shadow = true,
+            scale = 0.5
+        },
+        {
+            filename = "__lilys-rtg-radar__/graphics/entity/radar.png",
+            priority = "low",
+            width = 196,
+            height = 254,
+            apply_projection = false,
+            direction_count = 64,
+            line_length = 8,
+            shift = util.by_pixel(1.0, -16.0),
+            scale = 0.5,
+            tint = { 0.0, 0.25, 0.0, 0.1 },
+            blend_mode = "additive",
+            draw_as_glow = true,
+        },
+    }
+}
 
+---@diagnostic disable-next-line: assign-type-mismatch
 data:extend({item, radar})
 
 --recipe basic
